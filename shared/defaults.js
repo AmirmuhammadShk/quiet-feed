@@ -14,13 +14,13 @@
         enabled: true,
         match: "any",
         keywords: [
-          "ai", "artificial intelligence", "generative ai", "machine learning", "deep learning",
+          "ai", 
           "large language model", "language model", "llm", "llms", "chatgpt", "openai",
           "claude", "gemini", "copilot", "gpt-3", "gpt-4", "gpt-5", "gpt4", "gpt5",
-          "prompt engineering", "neural network", "transformer model", "foundation model",
-          "هوش مصنوعی", "هوش‌مصنوعی", "یادگیری ماشین", "یادگیری ماشینی", "یادگیری عمیق",
+          "prompt engineering","agent",
+          "هوش مصنوعی", "هوش‌مصنوعی",
           "مدل زبانی", "مدل زبان بزرگ", "مدل‌های زبانی", "مدل های زبانی", "چت جی پی تی",
-          "چت‌جی‌پی‌تی", "اوپن ای آی", "هوش مولد", "پرامپت نویسی"
+          "چت‌جی‌پی‌تی", "اوپن ای آی", "هوش مولد", "پرامپت نویسی","ایجنت", "کلاد"
         ]
       }
     ],
