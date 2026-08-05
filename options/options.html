@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quiet Feed settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand-mark" aria-hidden="true">Q</div>
+      <div><h1>Quiet Feed</h1><p>Keep unwanted topics out of your social feeds.</p></div>
+    </header>
+
+    <section class="card master-row">
+      <div><h2>Filtering</h2><p>Turn all filtering on or off.</p></div>
+      <label class="switch"><input id="master-enabled" type="checkbox"><span></span></label>
+    </section>
+
+    <nav aria-label="Settings sections">
+      <button class="tab active" data-tab="policies">Policies</button>
+      <button class="tab" data-tab="sites">Sites</button>
+      <button class="tab" data-tab="activity">Blocked activity <span id="nav-count" class="count-badge">0</span></button>
+      <button class="tab" data-tab="preferences">Preferences</button>
+    </nav>
+
+    <section id="policies" class="panel active">
+      <div class="section-heading"><div><h2>Policies</h2><p>A post is hidden when it matches an enabled policy.</p></div><button id="add-policy" class="primary">Add policy</button></div>
+      <div id="policy-list" class="list"></div>
+    </section>
+
+    <section id="sites" class="panel">
+      <div class="section-heading"><div><h2>Sites</h2><p>Configure supported hostnames and the CSS selectors that identify posts.</p></div><button id="add-site" class="primary">Add site</button></div>
+      <div id="site-list" class="list"></div>
+    </section>
+
+    <section id="preferences" class="panel">
+      <div class="card row"><div><h2>Show placeholders</h2><p>Show a small notice where a post was hidden.</p></div><label class="switch"><input id="show-placeholder" type="checkbox"><span></span></label></div>
+      <div class="card row log-pref"><div><h2>Keep blocked-content history</h2><p>Store blocked content locally on this device. Up to 2,000 recent entries are retained.</p></div><label class="switch"><input id="logging-enabled" type="checkbox"><span></span></label></div>
+      <div class="card danger-zone"><h2>Reset settings</h2><p>Restore the included X/Twitter, LinkedIn, and AI policy defaults.</p><button id="reset-settings" class="danger">Reset to defaults</button></div>
+    </section>
+
+    <section id="activity" class="panel">
+      <div class="section-heading activity-heading"><div><h2>Blocked activity</h2><p><strong id="blocked-total">0</strong> posts blocked in total. History stays on this device.</p></div><div class="activity-actions"><button id="export-json" class="secondary">Export JSON</button><button id="export-csv" class="secondary">Export CSV</button><button id="clear-log" class="danger">Clear history</button></div></div>
+      <div class="search-row"><input id="log-search" type="search" placeholder="Search content, site, or policy…"><select id="log-site-filter"><option value="">All sites</option></select></div>
+      <div id="log-summary" class="log-summary"></div>
+      <div id="log-list" class="log-list"></div>
+    </section>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <dialog id="policy-dialog">
+    <form id="policy-form" method="dialog">
+      <div class="dialog-head"><h2 id="policy-title">Add policy</h2><button class="icon-button close" type="button" aria-label="Close">×</button></div>
+      <input id="policy-id" type="hidden">
+      <label>Name<input id="policy-name" maxlength="80" required placeholder="e.g. Sports"></label>
+      <label>Match rule<select id="policy-match"><option value="any">Any keyword</option><option value="all">All keywords</option></select></label>
+      <label>Keywords <small>One per line. Matching is case-insensitive.</small><textarea id="policy-keywords" rows="10" required placeholder="keyword one&#10;keyword two"></textarea></label>
+      <div class="actions"><button class="secondary close" type="button">Cancel</button><button class="primary" value="save">Save policy</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="site-dialog">
+    <form id="site-form" method="dialog">
+      <div class="dialog-head"><h2 id="site-title">Add site</h2><button class="icon-button close" type="button" aria-label="Close">×</button></div>
+      <input id="site-id" type="hidden">
+      <label>Name<input id="site-name" maxlength="80" required placeholder="e.g. Reddit"></label>
+      <label>Hostnames <small>One per line, without https://. Subdomains are included.</small><textarea id="site-hosts" rows="4" required placeholder="example.com"></textarea></label>
+      <label>Post CSS selectors <small>One per line. Use selectors for the outer post container.</small><textarea id="site-selectors" rows="5" required placeholder="article.post"></textarea></label>
+      <div class="actions"><button class="secondary close" type="button">Cancel</button><button class="primary" value="save">Save site</button></div>
+    </form>
+  </dialog>
+
+  <script src="../shared/compat.js"></script>
+  <script src="../shared/defaults.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
