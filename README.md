@@ -120,25 +120,6 @@ Run:
 
 The script creates `web-ext-artifacts/quiet-feed-<version>.zip`.
 
-If Mozilla's `web-ext` tool is installed, lint before publishing:
-
-```sh
-web-ext lint --source-dir . \
-  --ignore-files web-ext-artifacts scripts README.md CONTRIBUTING.md \
-  SECURITY.md CHANGELOG.md PRIVACY.md LICENSE .gitignore
-```
-
-## Mozilla Add-ons release checklist
-
-Before submitting to Mozilla Add-ons:
-
-1. Update the manifest and changelog versions together.
-2. Test X/Twitter and LinkedIn in a clean Firefox profile.
-3. Run `web-ext lint` and resolve all errors.
-4. Build the ZIP with `./scripts/package.sh`.
-5. Review the ZIP to ensure it contains no credentials, local files, or generated artifacts.
-6. Submit source code if requested during Mozilla review.
-
 ## Contributing
 
 Bug reports and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before contributing and report security-sensitive issues according to [SECURITY.md](SECURITY.md).
