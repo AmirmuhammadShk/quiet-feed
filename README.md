@@ -1,5 +1,4 @@
-# Quiet Feed
-
+# If you want to keep up with tech news, go find better sources.
 Quiet Feed is an open-source Firefox extension that hides social media posts based on user-defined keyword policies.
 
 The main reason I wrote this extension was that my Twitter and LinkedIn feeds had been completely fucked up by an overwhelming amount of bullshit and garbage about things people and LinkedIn influencers had done with AI agents, talking about them as if they had just reinvented the fucking wheel
